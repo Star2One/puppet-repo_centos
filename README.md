@@ -1,17 +1,17 @@
 # 配置 CentOS yum 仓库
 
 # 关于
-这个是用于配置CentOS 系统yum源的puppet模块   
+这是一个用于配置CentOS 系统yum源的puppet模块。   
 默认使用<http://mirror.centos.org/centos>作为默认源仓库。  
 
 可以通过如下方式修改默认配置
 
-
+```
 class {'repo_centos':
    repourl       => 'http://myrepo/centos',
    enable_scl    => true,
 }
-
+```
 
 以上命令中
 同时设置enable_scl选项为true，表示选择启用scl源。
@@ -19,10 +19,10 @@ class {'repo_centos':
 
 另外一种修改默认配置的方式是通过hiera 的YAML配置。
 例如：
-
+```
 repo_centos::repourl: 'http://myrepo/centos'
 repo_centos::enable_scl: true
-
+```
 默认会自动导入GPG Keys.
 
 默认启用的仓库如下：
